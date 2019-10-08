@@ -1,0 +1,20 @@
+stages:
+  - image
+  - registry
+
+before_script:
+  - apt-get update
+  - apt-get install -y make
+
+build:
+  stage: image
+  script:
+    - make docker-build
+    - make test
+
+push:
+  stage: registry
+  script:
+    - make docker-push-registry
+    - make docker-clean
+
