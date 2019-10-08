@@ -11,10 +11,13 @@ build:
   script:
     - make docker-build
     - make test
+  tags:
+    - mediaio
 
 push:
   stage: registry
   script:
     - make docker-push-registry
     - make docker-clean
-
+  tags:
+    - mediaio
