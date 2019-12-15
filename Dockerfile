@@ -5,3 +5,4 @@ RUN apt-get update && apt-get install -y libssl-dev pkg-config cmake zlib1g-dev 
 	rustup component add clippy && \
 	cargo install cargo-tarpaulin
 
+WORKDIR /sources
