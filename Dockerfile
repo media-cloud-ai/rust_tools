@@ -1,4 +1,4 @@
-FROM rust:1.43.1-slim-stretch
+FROM rust:1.44.0-slim-stretch
 
 WORKDIR /sources
 
