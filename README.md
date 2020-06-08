@@ -1,2 +1,2 @@
-# rust_tools
-Base Docker image to build &amp; check rust components
+# Build Tools
+Base Docker images to build &amp; check components of rust and clang.

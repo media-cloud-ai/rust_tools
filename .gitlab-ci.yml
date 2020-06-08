@@ -2,18 +2,34 @@ stages:
   - image
   - registry
 
-build:
+build-rs:
   stage: image
   script:
-    - make docker-build
-    - make test
+    - make docker-build-rs
+    - make test-rs
   tags:
     - mediaio
 
-push:
+build-clang:
+  stage: image
+  script:
+    - make docker-build-clang
+    - make test-clang
+  tags:
+    - mediaio
+
+push-rs:
   stage: registry
   script:
-    - make docker-push-registry
-    - make docker-clean
+    - make docker-push-registry-rs
+    - make docker-clean-rs
+  tags:
+    - mediaio
+
+push-clang:
+  stage: registry
+  script:
+    - make docker-push-registry-clang
+    - make docker-clean-clang
   tags:
     - mediaio
