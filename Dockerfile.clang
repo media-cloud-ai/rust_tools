@@ -1,0 +1,15 @@
+FROM alpine:latest
+
+ARG CLANG_VERSION=10.0.0
+
+RUN apk --no-cache add \
+	autoconf \
+  llvm \
+  gcc \
+  g++ \
+  clang \
+  clang-extra-tools \
+  compiler-rt-static \
+  docker \
+  git \
+	make
