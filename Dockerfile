@@ -1,4 +1,4 @@
-FROM rust:1.45.1-slim-stretch
+FROM rust:1.46.0-slim-stretch
 
 WORKDIR /sources
 
@@ -8,6 +8,7 @@ RUN apt-get update && \
         pkg-config \
         cmake \
         zlib1g-dev \
+        git \
         && \
     rustup install nightly && \
     rustup component add rustfmt && \
