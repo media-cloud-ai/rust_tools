@@ -1,6 +1,6 @@
 FROM rust:1.46.0-slim-buster
 
-WORKDIR /sources
+WORKDIR /emsdk
 
 # enable rust nightly and enable the wasm32-unknown-unknown toolchain
 RUN apt-get update && \
@@ -17,3 +17,15 @@ RUN apt-get update && \
     rustup default nightly && \
     rustup target add wasm32-unknown-unknown --toolchain nightly && \
     curl https://rustwasm.github.io/wasm-pack/installer/init.sh -sSf | sh
+
+RUN apt-get install -y \
+        clang \
+        default-jre \
+        python && \
+    git clone https://github.com/emscripten-core/emsdk.git && \
+    cd emsdk && \
+    ./emsdk install latest && \
+    ./emsdk activate latest && \
+    source `pwd`/emsdk_env.sh
+
+WORKDIR /sources
