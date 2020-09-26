@@ -10,6 +10,8 @@ RUN apt-get update && \
         zlib1g-dev \
         git \
         && \
+    rustup target add x86_64-pc-windows-msvc && \
+    rustup target add x86_64-apple-darwin && \
     rustup install nightly && \
     rustup component add rustfmt && \
     rustup component add clippy && \
