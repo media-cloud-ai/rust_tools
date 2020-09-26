@@ -5,12 +5,14 @@ WORKDIR /emsdk
 # enable rust nightly and enable the wasm32-unknown-unknown toolchain
 RUN apt-get update && \
     apt-get install -y \
-        libssl-dev \
-        pkg-config \
         cmake \
         curl \
-        zlib1g-dev \
+        firefox-esr \
         git \
+        libssl-dev \
+        pkg-config \
+        wget \
+        zlib1g-dev \
         && \
     rustup update && \
     rustup install nightly && \
@@ -27,5 +29,9 @@ RUN apt-get install -y \
     ./emsdk install latest && \
     ./emsdk activate latest && \
     source `pwd`/emsdk_env.sh
+
+# install chrome
+RUN wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb && \
+    dpkg -i google-chrome-stable_current_amd64.deb; apt-get -fy install
 
 WORKDIR /sources
