@@ -20,7 +20,8 @@ RUN apt-get update && \
     rustup target add wasm32-unknown-unknown --toolchain nightly && \
     curl https://rustwasm.github.io/wasm-pack/installer/init.sh -sSf | sh
 
-RUN apt-get install -y \
+RUN mkdir -p /usr/share/man/man1 && \
+    apt-get install -y \
         clang \
         default-jre \
         python && \
@@ -28,7 +29,7 @@ RUN apt-get install -y \
     cd emsdk && \
     ./emsdk install latest && \
     ./emsdk activate latest && \
-    source `pwd`/emsdk_env.sh
+    . ./emsdk_env.sh
 
 # install chrome
 RUN wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb && \
