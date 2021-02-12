@@ -1,6 +1,6 @@
-FROM rust:1.48.0-slim-buster
+FROM rust:1.50.0-slim-buster
 
-ARG RUST_VERSION=1.48.0
+ARG RUST_VERSION=1.50.0
 # Mac OS X SDK version for OS X Cross
 ARG MACOSX_SDK_VERSION=10.11
 
